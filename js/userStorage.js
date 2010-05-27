@@ -40,8 +40,6 @@ var userStorage = function() {
             
             } else if (detectIE()) {
                 
-                alert('hey!');
-                
                 userSupport = true;
                 
                 //setup IE localStorage database
@@ -96,6 +94,16 @@ var userStorage = function() {
         },
         
         /**
+         * Sets a value into session storage. Wrapper function around above setValue
+         *
+         * @param key        This is the key
+         * @param value      This is the value
+         */
+        setSessionValue : function(key, value) {
+            this.setValue(key,value,true);
+        },
+        
+        /**
          * Gets a value from storage.
          * 
          * @param  key     This is the key to search for
@@ -125,6 +133,15 @@ var userStorage = function() {
         },
         
         /**
+         * Gets a value from session storage. Wrapper function around above getValue
+         *
+         * @param key        This is the key
+         */
+        getSessionValue : function(key) {
+            return this.getValue(key, true);
+        },
+        
+        /**
          * Deletes the value from storage.
          * 
          * @param  key     This is the key to search for
@@ -135,7 +152,7 @@ var userStorage = function() {
             session = (session === null || session === undefined || session === false) ? false : true;
             
             if (localSupport) {
-                setValue(key,null,session);
+                this.setValue(key,null,session);
             } else if (userSupport) {
                 if (session) {
                     seshObj.removeAttribute(key);
@@ -145,6 +162,15 @@ var userStorage = function() {
                     obj.save(ieDb);
                 }    
             }
+        },
+        
+        /**
+         * Deletes a value from session storage. Wrapper function around above deleteValue
+         *
+         * @param key        This is the key
+         */
+        deleteSessionValue : function(key) {
+            this.deleteValue(key, true);
         }
         
     }; //end return

@@ -14,7 +14,11 @@ $(document).ready(function() {
     $('#save').click(function() {
         if (key.val() !== '' && value.val() !== '') {
             var session = $('#session').is(':checked');
-            userStorage.setValue(key.val(), value.val(), session);
+            if (!session) {
+                userStorage.setValue(key.val(), value.val());
+            } else {
+                userStorage.setSessionValue(key.val(), value.val());
+            }
         } else {
             alert('Please enter both a key and a value');
         }
@@ -23,7 +27,11 @@ $(document).ready(function() {
     $('#search').click(function() {
         if (search.val() !== '') {
             var session = $('#search-session').is(':checked');
-            var result = userStorage.getValue(search.val(), session);
+            if (!session) {
+                var result = userStorage.getValue(search.val());
+            } else {
+                var result = userStorage.getSessionValue(search.val());
+            }
             ans.html(search.val() + ' = ' + result);
         } else {
             alert('Please enter key to search for');
@@ -33,7 +41,11 @@ $(document).ready(function() {
     $('#delete-btn').click(function() {
         if (del.val() !== '') {
             var session = $('#delete-session').is(':checked');
-            userStorage.deleteValue(del.val(), session);
+            if (!session) {
+                userStorage.deleteValue(del.val());
+            } else {
+                userStorage.deleteSessionValue(del.val());
+            }
         } else {
             alert('Please enter a key');
         }

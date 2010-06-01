@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--[if lt IE 8]>
-            <meta name="save" content="userdata">
-            <style type="text/css">.userData {behavior:url(#default#userdata); height:40px; width:40px; background:salmon;}</style>
-        <![endif]-->
         <title>Sandbox</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
         <script src="js/userStorage.js" type="text/javascript"></script>
@@ -32,5 +28,11 @@
         <label for="delete-session">Delete in session?</label>
         <input type="checkbox" id="delete-session" />
         <input type="submit" value="Delete" id="delete-btn" />
+        <h3>Clear Values</h3>
+        <ul>
+            <li><a href="#" id="clear-both">Clear both</a></li>
+            <li><a href="#" id="clear-local">Clear local </a></li>
+            <li><a href="#" id="clear-session">Clear session</a></li>
+        </ul>
     </body>
 </html>

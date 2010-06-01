@@ -51,4 +51,16 @@ $(document).ready(function() {
         }
     });
     
+    $('a#clear-both').click(function() {
+        userStorage.clearBoth();
+    });
+    
+    $('a#clear-local').click(function() {
+        userStorage.clearLocal();
+    });
+    
+    $('a#clear-session').click(function() {
+        userStorage.clearSession();
+    });
+    
 });

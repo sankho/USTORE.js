@@ -1,0 +1,62 @@
+<!--[if !IE]>  
+
+    /***************************************************
+    * This is a demo HTML file for the uSTORAGE.js library
+    * The demo uses jQuery (via the google ajax apis library), and 
+    * a separate js file, init.js, to handle all the events
+    *
+    * All references to uSTORAGE.js are written into init.js. 
+    * It should be noted that uSTORAGE.js itself is not dependent 
+    * on jQuery or any other javascript library to function.
+    ***************************************************/
+    
+<![endif]-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sandbox</title>
+        <script src="../uSTORAGE.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+        <script src="init.js" type="text/javascript"></script>
+    </head>
+    <body id="body">
+        <h1>uSTORAGE.js demo</h1>
+        <form action="#" method="get">
+            <fieldset>
+                <h3>Set Values</h3>
+                <label for="key">Key name </label>
+                <input type="text" id="key" />
+                <label for="value">Key value </label>
+                <input type="text" id="value" />
+                <label for="session">Store in session?</label>
+                <input type="checkbox" id="session" />
+                <input type="submit" value="Save" id="save" />
+            </fieldset>
+            <fieldset>
+                <h3>Get Values</h3>
+                <label for="search-key">Search by key </label>
+                <input type="text" id="search-key" />
+                <label for="search-session">Search in session?</label>
+                <input type="checkbox" id="search-session" />
+                <input type="submit" value="Search" id="search" />
+                <div id="ans"></div>
+            </fieldset>
+            <fieldset>
+                <h3>Delete Values</h3>
+                <label for="delete">Delete by key </label>
+                <input type="text" id="delete" />
+                <label for="delete-session">Delete in session?</label>
+                <input type="checkbox" id="delete-session" />
+                <input type="submit" value="Delete" id="delete-btn" />
+            </fieldset>
+            <fieldset>
+                <h3>Clear Values</h3>
+                <ul>
+                    <li><a href="#" id="clear-both">Clear both</a></li>
+                    <li><a href="#" id="clear-local">Clear local </a></li>
+                    <li><a href="#" id="clear-session">Clear session</a></li>
+                </ul>
+            </fieldset>
+        </form>
+    </body>
+</html>

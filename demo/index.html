@@ -1,29 +1,48 @@
-<!--[if !IE]>  
+<!--
 
     /***************************************************
-    * This is a demo HTML file for the uSTORAGE.js library
+    * This is a demo HTML file for the USTORE.js library
     * The demo uses jQuery (via the google ajax apis library), and 
     * a separate js file, init.js, to handle all the events
     *
-    * All references to uSTORAGE.js are written into init.js. 
-    * It should be noted that uSTORAGE.js itself is not dependent 
+    * All references to USTORE.js are written into init.js. 
+    * It should be noted that USTORE.js itself is not dependent 
     * on jQuery or any other javascript library to function.
     ***************************************************/
     
-<![endif]-->
+-->
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sandbox</title>
-        <script src="../uSTORAGE.js" type="text/javascript"></script>
+        <title>USTORE.js Demo</title>
+        <script src="../USTORE.js" type="text/javascript"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
         <script src="init.js" type="text/javascript"></script>
+        <style type="text/css">
+            /** S.L.F.L. == Single Line for Life **/
+            body { position: relative; }
+            #hugelogo { position: absolute; top:0px; right: 10px; border:0 none; }
+            form { padding:10px 20px; border:1px solid #ccc; }
+            fieldset{ padding:5px; }
+            #leroy a { color:#000; text-decoration:none; }
+        </style>
     </head>
     <body id="body">
-        <h1>uSTORAGE.js demo</h1>
+        <h1>USTORE.js demo</h1>
+        <a href="http://hugeinc.com/"><img id="hugelogo" src="hugelogo.png" alt="HUGE"></a>
+        <h2>One less thing to complain about not being able to use in IE...</h2>
+        <p>USTORE.js is a cross browser solution for sessionStorage and localStorage. This file serves as a demo of USTORE.js' core functionality. To get under the hood, check out the <a href="init.js">init.js</a> file to see how this page interacts with USTORE.js. To really figure things out, check out the actual <a href="../USTORE.js">USTORE.js library</a>.<br /><br />Brought to you by <a href="http://sankhomallik.com">Sankho Mallik</a> and <a href="http://hugeinc.com">HUGE</a>!</p>
+        <h2 id="leroy"><a href="http://www.youtube.com/watch?v=LkCNJRfSZBU" target="_blank">Time's up, let's do this!</a></h2>
+        <ol>
+            <li><a href="#set">Set Values</a></li>
+            <li><a href="#get">Get Values</a></li>
+            <li><a href="#delete">Delete Values</a></li>
+            <li><a href="#clear">Clear All Values</a></li>
+        </ol>
         <form action="#" method="get">
-            <fieldset>
-                <h3>Set Values</h3>
+            <h3><a name="set">Set Values</a></h3>
+            <p>Enter a key name, then enter it's value, then hit save. Your key = value pair will be stored in the browser's local storage. To store it in the browser window's session storage, click the checkbox next to save.</p>
+            <fieldset> 
                 <label for="key">Key name </label>
                 <input type="text" id="key" />
                 <label for="value">Key value </label>
@@ -32,8 +51,9 @@
                 <input type="checkbox" id="session" />
                 <input type="submit" value="Save" id="save" />
             </fieldset>
+            <h3><a name="get">Get Values</a></h3>
+            <p>Enter a key you stored in the above form to get it's value. If you stored it locally, close your browser, come back to this page, and then try and get it. Still there? Thought so. If it's stored in the session, don't close your browser, and click the checkbox to search just in the session.</p>
             <fieldset>
-                <h3>Get Values</h3>
                 <label for="search-key">Search by key </label>
                 <input type="text" id="search-key" />
                 <label for="search-session">Search in session?</label>
@@ -41,16 +61,18 @@
                 <input type="submit" value="Search" id="search" />
                 <div id="ans"></div>
             </fieldset>
+            <h3><a name="delete">Delete Values</a></h3>
+            <p>Delete a value by it's key name. To delete a value from the session and not the local storage, mark the checkbox.</p>
             <fieldset>
-                <h3>Delete Values</h3>
                 <label for="delete">Delete by key </label>
                 <input type="text" id="delete" />
                 <label for="delete-session">Delete in session?</label>
                 <input type="checkbox" id="delete-session" />
                 <input type="submit" value="Delete" id="delete-btn" />
             </fieldset>
+            <h3><a name="clear">Clear Values</a></h3>
+            <p>Clear all the values in both the local &amp; session storages, or just one.
             <fieldset>
-                <h3>Clear Values</h3>
                 <ul>
                     <li><a href="#" id="clear-both">Clear both</a></li>
                     <li><a href="#" id="clear-local">Clear local </a></li>

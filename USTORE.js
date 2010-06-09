@@ -1,55 +1,72 @@
 /*******************************************************************************
 *
-*   uSTORAGE - a cross browser javascript based local & session storage solution
+*   USTORE - a cross browser javascript based local & session storage solution
 *
-*   Written by Sankho Mallik, smallik@hugeinc.com
+*   Written by Sankho Mallik for HUGE inc, smallik@hugeinc.com
 *   
 *   browsers supported: IE6+, Firefox2+, Safari4+, Chrome4+ and Opera 10.5+
 *
-*   USAGE: uSTORAGE is a simple self executing function resulting in a usable
+*   *******
+*   LICENSE
+*
+*   This source file is subject to the new BSD license that is bundled
+*   with this package in the file LICENSE.
+*   It is also available through the world-wide-web at this URL:
+*   http://hugeinc.com/license/********
+*   
+*   *****
+*   USAGE: USTORE is a simple self executing function resulting in a usable
 *          global javascript object. Before using any of it's functions to set
 *          or retrieve data, the init() function must be called.
 * 
 *          Note about session storage in IE - it only works if no other javascript
 *          is manipulating the value of window.name - this global persistent var
 *          is used to emulate session storage in IE's userData functionality
-*   
+*
+*   ******* ******
+*   STORAGE LIMITS:
+*
+*   5 MB   - Chrome 4+, FF2+, Opera 10.50, Safari 4+, iPhone Safari
+*   10 MB  - IE8 (wow!)
+*   128 KB - IE6 + IE7 (not so wow!)
+*
+*   ****** *******
 *   PUBLIC METHODS:
 *   
-*   uSTORAGE.init()
+*   USTORE.init()
 *       - figures out which storage system is supported, initializes IE userData as
 *         necessary
 *
-*   uSTORAGE.setValue(key,value)
+*   USTORE.setValue(key,value)
 *       - saves a key = value pair in local storage
 *   
-*   uSTORAGE.setSessionValue(key,value)
+*   USTORE.setSessionValue(key,value)
 *       - saves a key = value pair in session storage
 *       
-*   uSTORAGE.getValue(key)
+*   USTORE.getValue(key)
 *       - retrieves a key's value from local storage
 *       
-*   uSTORAGE.getSessionValue(key)
+*   USTORE.getSessionValue(key)
 *       - retrieves a key's value from session storage
 *       
-*   uSTORAGE.deleteValue(key)
+*   USTORE.deleteValue(key)
 *       - delete's a key's value from local storage
 *   
-*   uSTORAGE.deleteSessionValue(key)
+*   USTORE.deleteSessionValue(key)
 *       - delete's a key's value from session storage
 *   
-*   uSTORAGE.clearLocalStorage()
+*   USTORE.clearLocalStorage()
 *       - clears everything from the local storage DB
 *   
-*   uSTORAGE.clearSessionStorage()
+*   USTORE.clearSessionStorage()
 *       - clears everything from the session storage DB
 *   
-*   uSTORAGE.clearDOMStorage()
+*   USTORE.clearDOMStorage()
 *       - clears everything from both session & local DBs
 *
 *******************************************************************************/
 
-var uSTORAGE = (function() {
+var USTORE = (function() {
     
     //object variables
     var localSupport, sessionSupport, userSupport, obj, objId, objDb, seshObj, seshObjId, seshDb;
@@ -276,7 +293,7 @@ var uSTORAGE = (function() {
          * 
          * @param key     This is the key
          * @param value   This is the value
-          */
+         */
         setValue : function(key, value) {
             DB.setValue(key,value,false);
         },

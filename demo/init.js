@@ -1,18 +1,18 @@
 /*********************************************************
 
-This file handles all DOM events for the uSTORAGE.js demo.
-It is not necessary to use uSTORAGE.js - this file is merely
-an example of how one could use uSTORAGE.js. jQuery is used
+This file handles all DOM events for the USTORE.js demo.
+It is not necessary to use USTORE.js - this file is merely
+an example of how one could use USTORE.js. jQuery is used
 to make everything easier and a little more readable.
 
-Note that the first call upon dom ready is to uSTORAGE.init()
+Note that the first call upon dom ready is to USTORE.init()
 
 **********************************************************/
 
 $(document).ready(function() {
     
     //step one: run the init function to determine & setup DOM storage support
-    uSTORAGE.init();
+    USTORE.init();
     
     //clear all inputs
     $('input[type="text"]').val('');
@@ -34,9 +34,9 @@ $(document).ready(function() {
         if (key.val() !== '' && value.val() !== '') {
             var session = $('#session').is(':checked');
             if (!session) {
-                uSTORAGE.setValue(key.val(), value.val());
+                USTORE.setValue(key.val(), value.val());
             } else {
-                uSTORAGE.setSessionValue(key.val(), value.val());
+                USTORE.setSessionValue(key.val(), value.val());
             }
         } else {
             alert('Please enter both a key and a value');
@@ -54,9 +54,9 @@ $(document).ready(function() {
         if (search.val() !== '') {
             var session = $('#search-session').is(':checked');
             if (!session) {
-                var result = uSTORAGE.getValue(search.val());
+                var result = USTORE.getValue(search.val());
             } else {
-                var result = uSTORAGE.getSessionValue(search.val());
+                var result = USTORE.getSessionValue(search.val());
             }
             ans.html(search.val() + ' = ' + result);
         } else {
@@ -74,9 +74,9 @@ $(document).ready(function() {
         if (del.val() !== '') {
             var session = $('#delete-session').is(':checked');
             if (!session) {
-                uSTORAGE.deleteValue(del.val());
+                USTORE.deleteValue(del.val());
             } else {
-                uSTORAGE.deleteSessionValue(del.val());
+                USTORE.deleteSessionValue(del.val());
             }
         } else {
             alert('Please enter a key');
@@ -89,7 +89,7 @@ $(document).ready(function() {
     */
     $('#clear-both').click(function(e) {
         e.preventDefault();
-        uSTORAGE.clearDOMStorage();
+        USTORE.clearDOMStorage();
     });
     
     /**
@@ -97,7 +97,7 @@ $(document).ready(function() {
     */
     $('#clear-local').click(function(e) {
         e.preventDefault();
-        uSTORAGE.clearLocalStorage();
+        USTORE.clearLocalStorage();
     });
     
     /**
@@ -105,7 +105,7 @@ $(document).ready(function() {
     */
     $('#clear-session').click(function(e) {
         e.preventDefault();
-        uSTORAGE.clearSessionStorage();
+        USTORE.clearSessionStorage();
     });
     
 });

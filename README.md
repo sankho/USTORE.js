@@ -40,6 +40,12 @@ And that should be it!
 Please see USTORE.js for usage instructions. For explicit examples, check out the demo/ folder 
 and it's contents. Light knowledge of jQuery may be required to understand the init.js file.
 
+Here's a small use example in JS:
+
+USTORE.init();                        //initialize databases
+USTORE.setValue('key','value');       //sets key "key" = "value"
+USTORE.getValue('key');               //returns the string "value
+
 ##=4. DOCUMENTATION
 
 For now... you're looking at it. More official docs are on the way. Some light documentation is

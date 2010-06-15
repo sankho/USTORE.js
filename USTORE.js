@@ -22,6 +22,14 @@
 *          Note about session storage in IE - it only works if no other javascript
 *          is manipulating the value of window.name - this global persistent var
 *          is used to emulate session storage in IE's userData functionality
+*          
+*          Basic usage example:
+*          /*
+*          *  USTORE.init();                        //initialize databases
+*          *  USTORE.setValue('key','value');       //sets key "key" = "value"
+*          *  USTORE.getValue('key');               //returns the string "value"
+*          *
+*
 *
 *   ******* ******
 *   STORAGE LIMITS:
